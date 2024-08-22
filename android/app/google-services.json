@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "863831848874",
+    "project_id": "maadih-c95a8",
+    "storage_bucket": "maadih-c95a8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:863831848874:android:46eb93e826a16c3ed65dd3",
+        "android_client_info": {
+          "package_name": "com.example.madh"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBzZonpfW8Pev0oBnvbK6QIvGowJ45DiBo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
