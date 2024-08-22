@@ -4,6 +4,7 @@ import 'package:madh/core/colors/const_colors.dart';
 import 'package:madh/core/size/const_size.dart';
 import 'package:madh/presentation/chose_mode/pages/chose_mode.dart';
 import 'package:madh/presentation/splash/pages/splash.dart';
+import 'package:madh/presentation/splash/widgets/main_logo.dart';
 
 class GetStartedPage extends StatelessWidget {
   const GetStartedPage({super.key});

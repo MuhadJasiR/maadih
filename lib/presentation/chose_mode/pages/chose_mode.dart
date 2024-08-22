@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:madh/common/widgets/button/custom_button.dart';
 import 'package:madh/core/colors/const_colors.dart';
 import 'package:madh/core/size/const_size.dart';
-import 'package:madh/presentation/splash/pages/splash.dart';
+import 'package:madh/presentation/auth/pages/signup_or_signin.dart';
+import 'package:madh/presentation/chose_mode/bloc/theme_cubit.dart';
+import 'package:madh/presentation/splash/widgets/main_logo.dart';
 
 class ChoseMode extends StatelessWidget {
   const ChoseMode({super.key});
@@ -44,7 +47,12 @@ class ChoseMode extends StatelessWidget {
                           CircleAvatar(
                             backgroundColor: kWhiteColor.withOpacity(0.3),
                             child: IconButton(
-                                onPressed: () {},
+                                onPressed: () {
+                                  print("dark");
+                                  context
+                                      .read<ThemeCubit>()
+                                      .updateTheme(ThemeMode.dark);
+                                },
                                 icon: const Icon(
                                   Icons.dark_mode_outlined,
                                   color: kWhiteColor,
@@ -64,7 +72,12 @@ class ChoseMode extends StatelessWidget {
                           CircleAvatar(
                             backgroundColor: kWhiteColor.withOpacity(0.3),
                             child: IconButton(
-                                onPressed: () {},
+                                onPressed: () {
+                                  print("light");
+                                  context
+                                      .read<ThemeCubit>()
+                                      .updateTheme(ThemeMode.light);
+                                },
                                 icon: const Icon(
                                   Icons.light_mode_outlined,
                                   color: kWhiteColor,
@@ -87,7 +100,7 @@ class ChoseMode extends StatelessWidget {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => const ChoseMode(),
+                            builder: (context) => const SignUpOrSignIn(),
                           ));
                     },
                     title: "Continue",
