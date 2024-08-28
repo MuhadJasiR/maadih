@@ -41,7 +41,7 @@ class SignUpOrSignIn extends StatelessWidget {
                     child: CustomButton(
                         onPressed: () {
                           Navigator.of(context).push(MaterialPageRoute(
-                              builder: (context) => const SignUpPage()));
+                              builder: (context) => SignUpPage()));
                         },
                         title: "Sign Up")),
                 kWidth(10),
