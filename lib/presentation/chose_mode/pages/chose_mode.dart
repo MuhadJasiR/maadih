@@ -5,6 +5,7 @@ import 'package:madh/core/colors/const_colors.dart';
 import 'package:madh/core/size/const_size.dart';
 import 'package:madh/presentation/auth/pages/signup_or_signin.dart';
 import 'package:madh/presentation/chose_mode/bloc/theme_cubit.dart';
+import 'package:madh/presentation/chose_mode/widgets/custom_dark_and_light_mode.dart';
 import 'package:madh/presentation/splash/widgets/main_logo.dart';
 
 class ChoseMode extends StatelessWidget {
@@ -39,61 +40,7 @@ class ChoseMode extends StatelessWidget {
                         color: kWhiteColor),
                   ),
                   kHeight(30),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      Column(
-                        children: [
-                          CircleAvatar(
-                            backgroundColor: kWhiteColor.withOpacity(0.3),
-                            child: IconButton(
-                                onPressed: () {
-                                  print("dark");
-                                  context
-                                      .read<ThemeCubit>()
-                                      .updateTheme(ThemeMode.dark);
-                                },
-                                icon: const Icon(
-                                  Icons.dark_mode_outlined,
-                                  color: kWhiteColor,
-                                )),
-                          ),
-                          kHeight(5),
-                          const Text(
-                            "Dark Mode",
-                            style: TextStyle(
-                                color: kWhiteColor,
-                                fontWeight: FontWeight.w600),
-                          )
-                        ],
-                      ),
-                      Column(
-                        children: [
-                          CircleAvatar(
-                            backgroundColor: kWhiteColor.withOpacity(0.3),
-                            child: IconButton(
-                                onPressed: () {
-                                  print("light");
-                                  context
-                                      .read<ThemeCubit>()
-                                      .updateTheme(ThemeMode.light);
-                                },
-                                icon: const Icon(
-                                  Icons.light_mode_outlined,
-                                  color: kWhiteColor,
-                                )),
-                          ),
-                          kHeight(5),
-                          const Text(
-                            "Light Mode",
-                            style: TextStyle(
-                                color: kWhiteColor,
-                                fontWeight: FontWeight.w600),
-                          )
-                        ],
-                      ),
-                    ],
-                  ),
+                  const CustomDarkAndLightModeTheme(),
                   kHeight(20),
                   CustomButton(
                     onPressed: () {

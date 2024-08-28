@@ -3,6 +3,7 @@ import 'package:madh/common/widgets/button/custom_button.dart';
 import 'package:madh/core/size/const_size.dart';
 import 'package:madh/data/model/auth/create_user_req.dart';
 import 'package:madh/domain/usecase/auth/signup.dart';
+import 'package:madh/presentation/Home/pages/home.dart';
 import 'package:madh/presentation/splash/widgets/main_logo.dart';
 import 'package:madh/service_locator.dart';
 
@@ -55,9 +56,19 @@ class SignUpPage extends StatelessWidget {
                     result.fold(
                       (l) {
                         var snackbar = SnackBar(content: Text(l.message));
-                        ScaffoldMessenger.of(context).showSnackBar(snackbar);
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          snackbar,
+                        );
                       },
-                      (r) {},
+                      (r) {
+                        Navigator.pushAndRemoveUntil(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const HomePage(),
+                          ),
+                          (route) => false,
+                        );
+                      },
                     );
                   },
                   title: "Create Account"),

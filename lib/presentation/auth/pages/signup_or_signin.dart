@@ -49,7 +49,7 @@ class SignUpOrSignIn extends StatelessWidget {
                     child: CustomButton(
                         onPressed: () {
                           Navigator.of(context).push(MaterialPageRoute(
-                              builder: (context) => const SignInPage()));
+                              builder: (context) => SignInPage()));
                         },
                         title: "Sign In")),
               ],

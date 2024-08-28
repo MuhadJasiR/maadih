@@ -16,21 +16,25 @@ class MaadihLogo extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         const CircleAvatar(
-          backgroundImage: AssetImage("assets/logo/maadih_logo.jpg"),
-          radius: 30,
-          backgroundColor: kPrimaryColor,
-          child: Icon(
-            Icons.mosque_rounded,
-            color: Colors.white,
-            size: 35,
+          radius: 25,
+          backgroundColor: kWhiteColor,
+          child: CircleAvatar(
+            radius: 22,
+            backgroundColor: kPrimaryColor,
+            child: Icon(
+              Icons.snowing,
+              color: kWhiteColor,
+              size: 35,
+            ),
           ),
         ),
         kWidth(10),
         Text(
           "Maadih",
-          style: GoogleFonts.anton(
+          style: GoogleFonts.dynalight(
             fontSize: 40,
-            color: kPrimaryColor,
+            fontWeight: FontWeight.bold,
+            color: kWhiteColor,
           ),
         )
       ],
