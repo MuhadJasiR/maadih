@@ -3,6 +3,7 @@ import 'package:flutter/widgets.dart';
 import 'package:madh/common/helper/is_dark_mode.dart';
 import 'package:madh/core/colors/const_colors.dart';
 import 'package:madh/core/size/const_size.dart';
+import 'package:madh/presentation/Home/widgets/news_songs.dart';
 import 'package:madh/presentation/splash/widgets/main_logo.dart';
 
 class HomePage extends StatefulWidget {
@@ -30,10 +31,10 @@ class _HomePageState extends State<HomePage>
       ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 20, vertical: 8),
+          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 8),
           child: Column(
             children: [
-              CustomTopCard(),
+              const CustomTopCard(),
               kHeight(25),
               TabBar(
                   indicatorColor: kPrimaryColor,
@@ -41,14 +42,15 @@ class _HomePageState extends State<HomePage>
                   dividerColor: Colors.transparent,
                   labelColor: context.isDarkMode ? kWhiteColor : kBlackColor,
                   controller: tabController,
-                  labelStyle: TextStyle(fontSize: 15),
+                  labelStyle: const TextStyle(fontSize: 15),
                   unselectedLabelColor: kGreyColor,
-                  tabs: [
+                  tabs: const [
                     Text("News"),
                     Text("Videos"),
                     Text("Artists"),
                     Text("Podcasts"),
-                  ])
+                  ]),
+              const NewsSongs()
             ],
           ),
         ),
