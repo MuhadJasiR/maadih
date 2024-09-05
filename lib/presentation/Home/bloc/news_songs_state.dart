@@ -9,4 +9,9 @@ class NewsSongsLoaded extends NewsSongsState {
   NewsSongsLoaded({required this.songs});
 }
 
+class NewsSongsCoverImageLoaded extends NewsSongsState {
+  final List<String> songsCoverImage;
+  NewsSongsCoverImageLoaded({required this.songsCoverImage});
+}
+
 class NewsSongsLoadFailure extends NewsSongsState {}
