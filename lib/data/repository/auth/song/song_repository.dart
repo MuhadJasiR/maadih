@@ -13,4 +13,9 @@ class SongRepositoryImp extends SongRepository {
   Future<Either> getNewSongsCoverImage() async {
     return await s1<SongFirebaseService>().getNewSongsCoverImage();
   }
+
+  @override
+  Future<Either> getPlayList() async {
+    return await s1<SongFirebaseService>().getPlayList();
+  }
 }

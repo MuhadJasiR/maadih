@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:madh/common/helper/is_dark_mode.dart';
+import 'package:madh/core/colors/const_colors.dart';
 
 import 'package:madh/core/size/const_size.dart';
 import 'package:madh/presentation/Home/bloc/news_songs_cubit.dart';
@@ -13,7 +15,7 @@ class NewsSongs extends StatelessWidget {
     return BlocProvider(
       create: (_) => NewsSongsCubit()..getNewsSongsCoverImage(),
       child: SizedBox(
-        height: 200,
+        height: 260,
         child: BlocBuilder<NewsSongsCubit, NewsSongsState>(
             builder: (context, state) {
           if (state is NewsSongsLoading) {
@@ -25,10 +27,11 @@ class NewsSongs extends StatelessWidget {
               separatorBuilder: (context, index) => kWidth(14),
               itemBuilder: (context, index) {
                 return SizedBox(
-                  height: 150,
                   width: 120,
                   child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
+                      kHeight(20),
                       Expanded(
                         child: Container(
                           decoration: BoxDecoration(
@@ -37,9 +40,39 @@ class NewsSongs extends StatelessWidget {
                                   fit: BoxFit.cover,
                                   image: NetworkImage(
                                       state.songsCoverImage[index]))),
+                          child: Align(
+                              alignment: Alignment.bottomRight,
+                              child: Container(
+                                height: 30,
+                                width: 30,
+                                transform: Matrix4.translationValues(10, 10, 0),
+                                decoration: BoxDecoration(
+                                    shape: BoxShape.circle,
+                                    color: context.isDarkMode
+                                        ? kDarkGreyColor
+                                        : kWhiteColor),
+                                child: Icon(
+                                  size: 18,
+                                  Icons.play_arrow_rounded,
+                                  color: context.isDarkMode
+                                      ? kWhiteColor
+                                      : kBlackColor,
+                                ),
+                              )),
                         ),
                       ),
-                      Text("Sample")
+                      kHeight(5),
+                      const Text(
+                        "Azhar kallur",
+                        style: TextStyle(
+                            fontSize: 16, fontWeight: FontWeight.w600),
+                      ),
+                      kHeight(5),
+                      const Text(
+                        "thu shahe huban",
+                        style: TextStyle(
+                            fontSize: 12, fontWeight: FontWeight.w600),
+                      )
                     ],
                   ),
                 );

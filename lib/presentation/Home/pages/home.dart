@@ -4,6 +4,7 @@ import 'package:madh/common/helper/is_dark_mode.dart';
 import 'package:madh/core/colors/const_colors.dart';
 import 'package:madh/core/size/const_size.dart';
 import 'package:madh/presentation/Home/widgets/news_songs.dart';
+import 'package:madh/presentation/Home/widgets/play_list.dart';
 import 'package:madh/presentation/splash/widgets/main_logo.dart';
 
 class HomePage extends StatefulWidget {
@@ -50,7 +51,9 @@ class _HomePageState extends State<HomePage>
                     Text("Artists"),
                     Text("Podcasts"),
                   ]),
-              const NewsSongs()
+              const NewsSongs(),
+              kHeight(20),
+              PlayList()
             ],
           ),
         ),
