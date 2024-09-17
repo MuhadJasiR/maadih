@@ -5,8 +5,9 @@ class SongEntity {
   final String artist;
   final num duration;
   final Timestamp releaseDate;
-
+  final String imageUrl;
   SongEntity({
+    required this.imageUrl,
     required this.title,
     required this.artist,
     required this.duration,

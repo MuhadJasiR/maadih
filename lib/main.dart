@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
 import 'package:madh/firebase_options.dart';
+import 'package:madh/presentation/Home/bloc/play_list_cubit.dart';
 import 'package:madh/presentation/Home/pages/home.dart';
 
 import 'package:madh/presentation/chose_mode/bloc/theme_cubit.dart';
@@ -30,7 +31,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
-      providers: [BlocProvider(create: (context) => ThemeCubit())],
+      providers: [
+        BlocProvider(create: (context) => ThemeCubit()),
+        BlocProvider(
+          create: (context) => PlayListCubit(),
+        )
+      ],
       child: BlocBuilder<ThemeCubit, ThemeMode>(
         builder: (context, mode) {
           print("Building MaterialApp with ThemeMode: $mode");

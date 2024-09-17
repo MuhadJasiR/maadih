@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+
 import 'package:madh/common/helper/is_dark_mode.dart';
 import 'package:madh/core/colors/const_colors.dart';
 import 'package:madh/core/size/const_size.dart';
@@ -19,7 +19,7 @@ class _HomePageState extends State<HomePage>
   late TabController tabController;
   @override
   void initState() {
-    tabController = TabController(length: 4, vsync: this);
+    tabController = TabController(length: 3, vsync: this);
     super.initState();
   }
 
@@ -46,14 +46,13 @@ class _HomePageState extends State<HomePage>
                   labelStyle: const TextStyle(fontSize: 15),
                   unselectedLabelColor: kGreyColor,
                   tabs: const [
-                    Text("News"),
                     Text("Videos"),
                     Text("Artists"),
                     Text("Podcasts"),
                   ]),
               const NewsSongs(),
               kHeight(20),
-              PlayList()
+              const PlayList()
             ],
           ),
         ),

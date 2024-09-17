@@ -1,12 +1,12 @@
 import 'package:madh/domain/entities/song/song.dart';
 
-abstract class PlayListSate {}
+abstract class PlayListState {}
 
-class PlayListLoading extends PlayListSate {}
+class PlayListLoading extends PlayListState {}
 
-class PlayListLoaded extends PlayListSate {
+class PlayListLoaded extends PlayListState {
   final List<SongEntity> songs;
   PlayListLoaded({required this.songs});
 }
 
-class PlayListLoadFailure extends PlayListSate {}
+class PlayListLoadFailure extends PlayListState {}

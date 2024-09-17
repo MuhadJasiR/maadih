@@ -3,7 +3,7 @@ import 'package:madh/domain/usecase/song/get_play_list.dart';
 import 'package:madh/presentation/Home/bloc/play_list_state.dart';
 import 'package:madh/service_locator.dart';
 
-class PlayListCubit extends Cubit<PlayListSate> {
+class PlayListCubit extends Cubit<PlayListState> {
   PlayListCubit() : super(PlayListLoading());
 
   Future<void> getPlayList() async {

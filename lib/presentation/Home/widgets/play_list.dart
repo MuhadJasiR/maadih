@@ -6,6 +6,7 @@ import 'package:madh/core/colors/const_colors.dart';
 import 'package:madh/domain/entities/song/song.dart';
 import 'package:madh/presentation/Home/bloc/play_list_cubit.dart';
 import 'package:madh/presentation/Home/bloc/play_list_state.dart';
+import 'package:madh/presentation/song_player/pages/song_player.dart';
 
 class PlayList extends StatelessWidget {
   const PlayList({super.key});
@@ -14,7 +15,7 @@ class PlayList extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (_) => PlayListCubit()..getPlayList(),
-      child: BlocBuilder<PlayListCubit, PlayListSate>(
+      child: BlocBuilder<PlayListCubit, PlayListState>(
         builder: (context, state) {
           if (state is PlayListLoading) {
             return const Center(child: CircularProgressIndicator());
@@ -49,63 +50,72 @@ class PlayList extends StatelessWidget {
       itemBuilder: (context, index) {
         return Padding(
           padding: const EdgeInsets.symmetric(vertical: 10),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Container(
-                    height: 45,
-                    width: 45,
-                    transform: Matrix4.translationValues(0, 0, 0),
-                    decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      color: context.isDarkMode ? kDarkGreyColor : kWhiteColor,
-                    ),
-                    child: Icon(
-                      size: 18,
-                      Icons.play_arrow_rounded,
-                      color: context.isDarkMode ? kWhiteColor : kBlackColor,
-                    ),
-                  ),
-                  const SizedBox(width: 10),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        songs[index].title,
-                        style: const TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 16,
-                        ),
+          child: GestureDetector(
+            onTap: () => Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => SongPlayerPage(
+                          songs: songs[index],
+                        ))),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Container(
+                      height: 45,
+                      width: 45,
+                      transform: Matrix4.translationValues(0, 0, 0),
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        color:
+                            context.isDarkMode ? kDarkGreyColor : kWhiteColor,
                       ),
-                      Text(
-                        songs[index].artist,
-                        style: const TextStyle(
-                          fontWeight: FontWeight.w400,
-                          fontSize: 12,
-                        ),
+                      child: Icon(
+                        size: 18,
+                        Icons.play_arrow_rounded,
+                        color: context.isDarkMode ? kWhiteColor : kBlackColor,
                       ),
-                    ],
-                  ),
-                ],
-              ),
-              Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Text(
-                    songs[index].duration.toString().replaceAll(".", ":"),
-                    style: const TextStyle(fontSize: 14),
-                  ),
-                  IconButton(
-                    onPressed: () {},
-                    icon: const Icon(Icons.favorite),
-                  ),
-                ],
-              ),
-            ],
+                    ),
+                    const SizedBox(width: 10),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          songs[index].title,
+                          style: const TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 16,
+                          ),
+                        ),
+                        Text(
+                          songs[index].artist,
+                          style: const TextStyle(
+                            fontWeight: FontWeight.w400,
+                            fontSize: 12,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Text(
+                      songs[index].duration.toString().replaceAll(".", ":"),
+                      style: const TextStyle(fontSize: 14),
+                    ),
+                    IconButton(
+                      onPressed: () {},
+                      icon: const Icon(Icons.favorite),
+                    ),
+                  ],
+                ),
+              ],
+            ),
           ),
         );
       },
